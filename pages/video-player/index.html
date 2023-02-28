@@ -7,16 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JSExpert Max - BlinkToPlay</title>
   <style>
+    body {
+      display: flex;
+      margin: 0;
+    }
     video {
-      width: 95%;
-      margin: 10px;
+      flex: 1;
+      max-height: 100vh;
     }
   </style>
 </head>
 
 <body>
   <video id="video" src="/assets/video.mp4" controls></video>
-  </script>
+  <script src="./src/index.js" type="module"></script>
 </body>
 
 </html>
