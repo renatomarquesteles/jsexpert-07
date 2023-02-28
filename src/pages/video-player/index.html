@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSExpert Max - BlinkToPlay</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+      }
+      video {
+        flex: 1;
+        max-height: 100vh;
+      }
+      .cam {
+        position: fixed;
+        right: 8px;
+        top: 6px;
+      }
+      .button-container {
+        margin-left: 20px;
+      }
+      .button-container button {
+        margin: 10px;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JSExpert Max - BlinkToPlay</title>
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      margin: 0;
-    }
-    video {
-      flex: 1;
-      max-height: 100vh;
-    }
-    .cam {
-      position: fixed;
-      right: 8px;
-      top: 6px;
-    }
-  </style>
-</head>
-
-<body>
-  <video id="video" src="../../assets/video.mp4" controls></video>
-  <script src="./src/index.js" type="module"></script>
-</body>
-
+  <body>
+    <div class="button-container">
+      <div>
+        <button id="init" type="button">
+          Initialize Blink Recognition
+        </button>
+        <output id="status"></output>
+      </div>
+    </div>
+    <video id="video" src="../../assets/video.mp4" controls></video>
+    <script src="./src/index.js" type="module"></script>
+  </body>
 </html>
