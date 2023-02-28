@@ -7,6 +7,7 @@ import View from './view.js'
 async function getWorker() {
   if (supportsWorkerType()) {
     const worker = new Worker('./src/worker.js', { type: 'module' })
+
     return worker
   }
 
@@ -16,9 +17,7 @@ async function getWorker() {
   }
   return workerMock
 }
-
 const worker = await getWorker()
-worker.postMessage('hey from factory!')
 
 const camera = await Camera.init()
 
@@ -27,6 +26,7 @@ const factory = {
     return Controller.initialize({
       view: new View(),
       service: new Service({}),
+      worker,
     })
   },
 }
