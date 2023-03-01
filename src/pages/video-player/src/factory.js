@@ -1,7 +1,6 @@
 import Camera from '../../../utils/camera.js'
 import { supportsWorkerType } from '../../../utils/webworkers.js'
 import Controller from './controller.js'
-import Service from './service.js'
 import View from './view.js'
 
 async function getWorker() {
@@ -25,8 +24,8 @@ const factory = {
   async initalize() {
     return Controller.initialize({
       view: new View(),
-      service: new Service({}),
       worker,
+      camera,
     })
   },
 }

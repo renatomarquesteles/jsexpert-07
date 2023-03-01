@@ -17,10 +17,10 @@ await service.loadModel()
 console.log('TF model loaded successfully')
 setTimeout(() => postMessage('READY'), 2000)
 
-onmessage = ({ data }) => {
-  console.log('worker', data)
+onmessage = async ({ data: video }) => {
+  const blinked = await service.headBlinked(video)
 
-  postMessage({
-    ok: 'ok',
-  })
+  if (!blinked) return
+
+  postMessage({ blinked })
 }
