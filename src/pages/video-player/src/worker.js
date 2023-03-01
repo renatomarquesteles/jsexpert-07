@@ -15,7 +15,7 @@ const service = new Service({ faceLandmarksDetection })
 console.log('Loading TF model')
 await service.loadModel()
 console.log('TF model loaded successfully')
-postMessage('READY')
+setTimeout(() => postMessage('READY'), 2000)
 
 onmessage = ({ data }) => {
   console.log('worker', data)
