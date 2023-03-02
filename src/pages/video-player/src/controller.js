@@ -60,7 +60,8 @@ export default class Controller {
   }
 
   log(text) {
-    this.#view.log(`logger: ${text}`)
+    const times = `     - blinked times: ${this.#blinkCounter}`
+    this.#view.log(`status: ${text}`.concat(this.#blinkCounter ? times : ''))
   }
 
   onButtonStart() {

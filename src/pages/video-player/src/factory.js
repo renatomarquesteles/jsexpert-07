@@ -45,11 +45,7 @@ async function getWorker() {
 
   setTimeout(() => {
     worker.onmessage({ data: 'READY' })
-<<<<<<< HEAD
   }, 2000)
-=======
-  }, 200)
->>>>>>> 219fc48ac84c2fd675bff38451e817cec3e3e0f0
 
   return workerMock
 }
