@@ -7,7 +7,9 @@ export default class HandGestureController {
     this.#view = view
   }
 
-  async init() {}
+  async init() {
+    await this.#service.initializeDetector()
+  }
 
   static async initialize(deps) {
     const controller = new HandGestureController(deps)
