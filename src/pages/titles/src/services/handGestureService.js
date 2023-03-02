@@ -19,14 +19,19 @@ export default class HandGestureService {
       9
     )
 
-    return predictions
+    return predictions.gestures
   }
 
   async *detectGestures(predictions) {
     for (const hand of predictions) {
       if (!hand.keypoints3D) continue
       const gestures = await this.estimate(hand.keypoints3D)
-      console.log({ gestures })
+      if (!gestures.length) continue
+
+      const result = gestures.reduce((previous, current) =>
+        previous.score > current.score ? previous : current
+      )
+      console.log({ result })
     }
   }
 
