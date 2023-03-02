@@ -5,6 +5,7 @@ export default class View {
   #canvasContext = this.#videoFrameCanvas.getContext('2d', {
     willReadFrequently: true,
   })
+  #videoElement = document.querySelector('#video')
 
   // Converts video into a canvas image
   getVideoFrame(video) {
@@ -15,6 +16,16 @@ export default class View {
 
     this.#canvasContext.drawImage(video, 0, 0, width, height)
     return this.#canvasContext.getImageData(0, 0, width, height)
+  }
+
+  // Pause/Play video
+  togglePlayVideo() {
+    if (this.#videoElement.paused) {
+      this.#videoElement.play()
+      return
+    }
+
+    this.#videoElement.pause()
   }
 
   enableButton() {
