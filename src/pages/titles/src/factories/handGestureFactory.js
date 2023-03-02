@@ -7,10 +7,14 @@ import 'https://cdn.jsdelivr.net/npm/fingerpose@0.1.0/dist/fingerpose.min.js'
 import HandGestureController from '../controllers/handGestureController.js'
 import HandGestureService from '../services/handGestureService.js'
 import HandGestureView from '../views/handGestureView.js'
+import Camera from '../../../../utils/camera.js'
+
+const camera = await Camera.init()
 
 const factory = {
   async initalize() {
     return HandGestureController.initialize({
+      camera,
       view: new HandGestureView(),
       service: new HandGestureService({
         fingerpose: window.fp,
