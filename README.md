@@ -2,7 +2,7 @@
 
 ## Features Checklist
 - Titles List
-  - [] - Search field should not crash when typing search term
+  - [✔] - Search field should not crash when typing search term
   - [] - It should draw hands on the screen and make background elements still clickable 🙌
   - [] - Must trigger scroll up when using open palm 🖐
   - [] - Must trigger scroll down when using closed palm ✊
@@ -10,8 +10,8 @@
   - [] - When moving elements on screen, must trigger **:hover** event on elements in context
 
 - Video Player
-  - [] - It should be possible to play or pause videos with the blink of an eye 😁
-  - [] - All Machine Learning processing must be done via a Web worker
+  - [✔] - It should be possible to play or pause videos with the blink of an eye 😁
+  - [✔] - All Machine Learning processing must be done via a Web worker
 
 ### Challenges
 - [] - Differentiate between right and left eye blinks and update log to show which eye blinked.
