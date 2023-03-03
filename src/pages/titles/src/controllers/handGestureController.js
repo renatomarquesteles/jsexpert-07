@@ -1,7 +1,14 @@
+import { prepareRunChecker } from '../../../../utils/prepareRunChecker.js'
+
+const { shouldRun: scrollShouldRun } = prepareRunChecker({ timerDelay: 200 })
 export default class HandGestureController {
   #view
   #service
   #camera
+  #lastDirection = {
+    direction: '',
+    y: 0,
+  }
 
   constructor({ view, service, camera }) {
     this.#service = service
@@ -13,10 +20,29 @@ export default class HandGestureController {
     return this.#loop()
   }
 
+  #scrollPage(direction) {
+    const pixelsPerScroll = 100
+
+    if (this.#lastDirection.direction === direction) {
+      this.#lastDirection.y =
+        direction === 'scroll-down'
+          ? this.#lastDirection.y + pixelsPerScroll
+          : this.#lastDirection.y - pixelsPerScroll
+    } else {
+      this.#lastDirection.direction = direction
+    }
+
+    this.#view.scrollPage(this.#lastDirection.y)
+  }
+
   async #estimateHands() {
     try {
       const hands = await this.#service.estimateHands(this.#camera.video)
-      for await (const gesture of this.#service.detectGestures(hands)) {
+      for await (const { event, x, y } of this.#service.detectGestures(hands)) {
+        if (event.includes('scroll')) {
+          if (!scrollShouldRun()) continue
+          this.#scrollPage(event)
+        }
       }
       console.log({ hands })
     } catch (error) {
