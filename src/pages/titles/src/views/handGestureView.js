@@ -67,7 +67,7 @@ export default class HandGestureView {
   }
 
   #hoverElement(finger, points) {
-    if (finger !== 'indexFinger') return
+    if (finger !== 'index') return
 
     const tip = points.find((item) => item.name === 'index_finger_tip')
     const element = document.elementFromPoint(tip.x, tip.y)
