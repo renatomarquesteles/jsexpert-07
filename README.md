@@ -3,10 +3,10 @@
 ## Features Checklist
 - Titles List
   - [✔] - Search field should not crash when typing search term
-  - [] - It should draw hands on the screen and make background elements still clickable 🙌
+  - [✔] - It should draw hands on the screen and make background elements still clickable 🙌
   - [✔] - Must trigger scroll up when using open palm 🖐
   - [✔] - Must trigger scroll down when using closed palm ✊
-  - [] - Must trigger click on nearest element when using pinch gesture 🤏🏻
+  - [✔] - Must trigger click on nearest element when using pinch gesture 🤏🏻
   - [] - When moving elements on screen, must trigger **:hover** event on elements in context
 
 - Video Player
