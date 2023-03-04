@@ -7,7 +7,7 @@
   - [✔] - Must trigger scroll up when using open palm 🖐
   - [✔] - Must trigger scroll down when using closed palm ✊
   - [✔] - Must trigger click on nearest element when using pinch gesture 🤏🏻
-  - [] - When moving elements on screen, must trigger **:hover** event on elements in context
+  - [✔] - When moving elements on screen, must trigger **:hover** event on elements in context
 
 - Video Player
   - [✔] - It should be possible to play or pause videos with the blink of an eye 😁
